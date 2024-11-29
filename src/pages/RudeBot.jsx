@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { IoIosArrowDropupCircle } from "react-icons/io";
 import { RiRobot2Fill } from "react-icons/ri";
-
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const RudeBot = () => {
   const [message, setMessage] = useState("");
   const [history, setHistory] = useState([]);
@@ -32,7 +32,7 @@ const RudeBot = () => {
     setLoading(true);
 
     try {
-      const res = await axios.post(`http://localhost:3000/lvl${level}`, {
+      const res = await axios.post(`${API_BASE_URL}/lvl${level}`, {
         message,
       });
 
